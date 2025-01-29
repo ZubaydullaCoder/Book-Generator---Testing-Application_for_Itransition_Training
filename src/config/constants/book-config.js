@@ -6,28 +6,31 @@ export const SAMPLE_BOOKS = [
     authors: ['Sarah J. Mitchell', 'David Chen'],
     publisher: 'Insight Press',
     coverUrl: 'https://picsum.photos/seed/book1/400/600',
-    description: 'An exploration of design patterns and their impact on modern society.',
+    description:
+      'An exploration of design patterns and their impact on modern society.',
     reviews: [
       {
         author: 'John Doe',
         rating: 4,
-        content: 'A fascinating look at design principles and their applications.',
+        content:
+          'A fascinating look at design principles and their applications.',
       },
       {
         author: 'Jane Smith',
-        rating: 5, 
+        rating: 5,
         content: 'Beautifully written and thoroughly researched.',
       },
     ],
   },
   {
-    id: 2, 
+    id: 2,
     isbn: '978-0-987654-32-1',
     title: 'Software Architecture: A Modern Approach',
     authors: ['Michael Brown'],
     publisher: 'Tech Publications',
-    coverUrl: 'https://picsum.photos/seed/book2/400/600', 
-    description: 'A comprehensive guide to modern software architecture principles.',
+    coverUrl: 'https://picsum.photos/seed/book2/400/600',
+    description:
+      'A comprehensive guide to modern software architecture principles.',
     reviews: [
       {
         author: 'Alice Johnson',

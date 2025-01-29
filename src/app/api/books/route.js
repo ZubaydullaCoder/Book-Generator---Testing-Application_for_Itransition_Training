@@ -25,9 +25,11 @@ export async function GET(request) {
 
     return NextResponse.json({ books }, { status: 200 });
   } catch (error) {
-    console.error('Error generating books:', error);
     return NextResponse.json(
-      { error: 'Failed to generate books' },
+      {
+        error: 'Failed to generate books',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
       { status: 500 }
     );
   }
