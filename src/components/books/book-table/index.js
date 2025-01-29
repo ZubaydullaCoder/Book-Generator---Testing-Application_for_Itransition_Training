@@ -3,7 +3,10 @@
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteBooks } from '@/hooks/use-books/use-infinite-books';
+import { useSettings } from '@/lib/store/settings-store';
 import { BookRow } from '../books-row';
+import { Button } from '@/components/ui/button';
+import { ChevronDownSquare } from 'lucide-react';
 import {
   Table,
   TableHeader,
@@ -17,6 +20,7 @@ const COLUMNS = ['#', 'ISBN', 'Title', 'Author(s)', 'Publisher'];
 
 export function BooksTable() {
   const { ref: bottomRef, inView } = useInView();
+  const { collapseAllRows } = useSettings();
   const {
     data,
     fetchNextPage,
@@ -45,7 +49,17 @@ export function BooksTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[50px]"></TableHead>
+            <TableHead className="w-[50px]">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={collapseAllRows}
+                className="h-8 p-0 text-muted-foreground hover:bg-transparent"
+              >
+                <ChevronDownSquare className="h-4 w-4" />
+                <span className="sr-only">Collapse All</span>
+              </Button>
+            </TableHead>
             {COLUMNS.map((column) => (
               <TableHead key={column}>{column}</TableHead>
             ))}

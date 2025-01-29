@@ -22,30 +22,25 @@ export const useSettings = create(
         set({ seed: Math.floor(Math.random() * 10000) });
       },
 
+      // Existing row expansion logic
       toggleExpandedRow: (bookId) =>
         set((state) => {
-          const expanded = Array.isArray(state.expandedRows)
-            ? state.expandedRows
-            : [];
+          const expanded = [...state.expandedRows];
           const index = expanded.indexOf(bookId);
 
           if (index !== -1) {
-            return {
-              expandedRows: expanded.filter((id) => id !== bookId),
-            };
+            expanded.splice(index, 1);
+          } else {
+            expanded.push(bookId);
           }
-          return {
-            expandedRows: [...expanded, bookId],
-          };
+
+          return { expandedRows: expanded };
         }),
 
-      isRowExpanded: (bookId) => {
-        const state = get();
-        const expanded = Array.isArray(state.expandedRows)
-          ? state.expandedRows
-          : [];
-        return expanded.includes(bookId);
-      },
+      // Add collapse all functionality
+      collapseAllRows: () => set({ expandedRows: [] }),
+
+      isRowExpanded: (bookId) => get().expandedRows.includes(bookId),
     }),
     {
       name: 'book-generator-settings',
