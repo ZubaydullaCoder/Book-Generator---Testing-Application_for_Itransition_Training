@@ -1,5 +1,3 @@
-Here’s the professionally formatted Markdown document while preserving all meaning:
-
 ````markdown
 # 📚 Book Generator - Testing Application
 
@@ -181,9 +179,3 @@ This project is licensed under the **MIT License** – see the `LICENSE` file fo
 🚀 Built with ❤️ for **Itransition training tasks**
 
 ---
-
-This version is **clean, structured, and professional**, making it easier to read and navigate. Let me know if you need any modifications! 🚀
-
-```
-
-```
